@@ -1,0 +1,229 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&display=swap');
+
+/* =========================
+   ROOT COLOURS
+========================= */
+:root {
+  --pink: #F2A1C7;
+  --acid-green: #7CFF00;
+  --deep-black: #0B0B0E;
+  --purple: #7A3EFF;
+}
+
+/* =========================
+   RESET
+========================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* =========================
+   BASE
+========================= */
+body {
+  font-family: 'Orbitron', sans-serif;
+  background: radial-gradient(circle at top, #141420, var(--deep-black));
+  color: white;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* =========================
+   LIGHTNING FLASH
+========================= */
+.lightning {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent 45%,
+    rgba(255,255,255,0.15) 50%,
+    transparent 55%
+  );
+  pointer-events: none;
+  mix-blend-mode: screen;
+  opacity: 0;
+}
+
+/* =========================
+   LAYOUT
+========================= */
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 1.5rem;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* =========================
+   SVG LOGO
+========================= */
+.logo-wrapper {
+  width: 100%;
+  margin-bottom: 2.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.logo-svg {
+  display: block;
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  animation: pulse 6s ease-in-out infinite;
+}
+
+/* Logo text */
+.logo-text {
+  font-family: 'Cinzel', serif;
+  font-size: 96px;
+  letter-spacing: 6px;
+  font-weight: 700;
+  fill: #8b1a2b;
+  stroke: #ffffff;
+  stroke-width: 2.5;
+  paint-order: stroke fill;
+}
+
+/* Lightning Z */
+.lightning-z {
+  fill: none;
+  stroke: #00ffff;
+  stroke-width: 6;
+  filter: drop-shadow(0 0 12px #00ffff);
+}
+
+/* Eye */
+.eye-white { fill: #ffffff; }
+.eye-iris-outer { fill: #1f8f5f; }
+.eye-iris-inner { fill: #42f5a1; }
+.eye-pupil { fill: #062018; }
+
+/* Eyelids */
+.lid {
+  fill: none;
+  stroke: #0b0b0b;
+  stroke-width: 8;
+  stroke-linecap: round;
+}
+
+.lower-lid {
+  opacity: 0.4;
+}
+
+/* Eyelashes */
+.lash {
+  stroke: #ffffff;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+}
+
+/* Logo glow pulse */
+@keyframes pulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 6px rgba(242,161,199,0.4));
+  }
+  50% {
+    filter: drop-shadow(0 0 16px rgba(242,161,199,0.8));
+  }
+}
+
+/* =========================
+   TAGLINE
+========================= */
+.tagline {
+  margin-bottom: 3rem;
+  opacity: 0.8;
+}
+
+/* =========================
+   LINKS
+========================= */
+.links {
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.link-btn {
+  padding: 1rem;
+  border: 2px solid var(--acid-green);
+  text-decoration: none;
+  color: white;
+  letter-spacing: 0.15rem;
+  text-transform: uppercase;
+  transition: 0.25s;
+}
+
+.link-btn:hover {
+  background: var(--acid-green);
+  color: black;
+}
+
+/* =========================
+   MUSIC
+========================= */
+.music {
+  margin-top: 3rem;
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+/* =========================
+   MUSHROOMS
+========================= */
+.mushroom {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  opacity: 0.4;
+  animation: float 8s ease-in-out infinite;
+}
+
+.mushroom.left { left: 10%; }
+.mushroom.right { right: 10%; animation-delay: 3s; }
+
+@keyframes float {
+  0%, 100% { transform: translateY(-50%); }
+  50% { transform: translateY(-80%); }
+}
+
+/* =========================
+   FOOTER
+========================= */
+footer {
+  margin-top: 4rem;
+  font-size: 0.7rem;
+  opacity: 0.4;
+}
+
+/* =========================
+   ACCESSIBILITY
+========================= */
+@media (prefers-reduced-motion: reduce) {
+  .lightning,
+  .mushroom,
+  .logo-svg {
+    animation: none;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+@media (max-width: 480px) {
+  .logo-svg {
+    max-width: 300px;
+  }
+}
